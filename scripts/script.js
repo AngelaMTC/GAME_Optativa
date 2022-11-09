@@ -5,8 +5,8 @@ window.addEventListener("load", function () {
   const ctx = canvas.getContext("2d");
 
   //Diseño del juego:
-  canvas.width = 500;
-  canvas.height = 500;
+  canvas.width = 800;
+  canvas.height = 800;
 
   //Conguración para moverse:
   class InputHandler {
@@ -32,17 +32,17 @@ window.addEventListener("load", function () {
 
     }
   }
-  //Aquí se hace la clase del pryectil para que este tenga su funcionamiento:
+  //Aquí se hace la clase del proyectil para que este tenga su funcionamiento:
   class Projectile {
     constructor(game, x, y) {
       this.game = game;
       this.x = x;
       this.y = y;
-      // El diseño del jugador:
+      // El diseño del proyectil:
       this.width = 10;
       this.height = 3;
-      //Rapidez del jugador:
-      this.speed = 3;
+      //Rapidez del proyectil:
+      this.speed = 2;
       this.markedForDeletion = false;
     }
 
@@ -78,9 +78,9 @@ window.addEventListener("load", function () {
     update() {
       this.y += this.speedY;
       if (this.game.keys.includes("ArrowUp")) {
-        this.speedY = -1;
+        this.speedY = -2;
       } else if (this.game.keys.includes("ArrowDown")) {
-        this.speedY = 1;
+        this.speedY = 2;
       } else {
         this.speedY = 0;
       }
@@ -97,7 +97,7 @@ window.addEventListener("load", function () {
 
     //Estilo del proyectil:
     draw(context) {
-      context.fillStyle = "#333";
+      context.fillStyle = "#41babf ";
       context.fillRect(this.x, this.y, this.width, this.height);
       this.projectiles.forEach(projectile => {
         projectile.draw(context);
@@ -122,7 +122,7 @@ window.addEventListener("load", function () {
       this.x = this.game.width;
       this.speedX = Math.random() * -1.5 - 0.5;
       this.markedForDeletion = false;
-      this.lives = 5;
+      this.lives = 8;
       this.score = this.lives;
     }
 
@@ -139,7 +139,7 @@ window.addEventListener("load", function () {
       context.fillStyle = "red";
       context.fillRect(this.x, this.y, this.width, this.height);
       context.fillStyle = "black";
-      context.font = "20px Helvetica";
+      context.font = "20px Times Roman";
       context.fillText(this.lives, this.x, this.y);
     }
   }
@@ -161,7 +161,7 @@ window.addEventListener("load", function () {
       this.game = game;
       this.image = image;
       this.speedModifier = speedModifier;
-      this.width = 1768;
+      this.width = 2000;
       this.height = 500;
       this.x = 0;
       this.y = 0;
@@ -209,7 +209,7 @@ window.addEventListener("load", function () {
   class UI {
     constructor(game) {
       this.game = game;
-      this.fontSize = 25;
+      this.fontSize = 40;
       this.fontFamily = "Helvetica";
       this.color = "white";
     }
@@ -233,11 +233,11 @@ window.addEventListener("load", function () {
         let message1;
         let message2;
         if (this.game.score > this.game.winningScore) {
-          message1 = "You won";
-          message2 = "Well done";
+          message1 = "¡Felicidades!";
+          message2 = "Has ganado.";
         } else {
-          message1 = "You lost";
-          message2 = "Try again! :(";
+          message1 = "GAME OVER";
+          message2 = "Has perdido, inténtalo de nuevo.";
         }
         context.font = "50px " + this.fontFamily;
         context.fillText(message1,
@@ -266,7 +266,7 @@ window.addEventListener("load", function () {
       this.backGround = new BackGround(this);
       this.keys = [];
       //Configuraciones de la munición (tiempo, intérvalo):
-      this.ammo = 20;
+      this.ammo = 10;
       this.ammoTimer = 0;
       this.ammoInterval = 500;
       this.maxAmmo = 50;
@@ -282,7 +282,7 @@ window.addEventListener("load", function () {
       this.winningScore = 10;
       this.gameTime = 0;
       //Tiempo de duración del juego:
-      this.timeLimit = 15000;
+      this.timeLimit = 10000;
       //Rapidez del juego:
       this.speed = 1;
     }
