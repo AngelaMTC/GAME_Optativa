@@ -1,0 +1,26 @@
+CANVAS
+El elemento HTML Canvas se puede utilizar para dibujas gráficos através de secuencias de comandos (por lo general en JS). Su uso más común son los gráficos, composiciones de fotos y animaciones
+
+Evento Load 
+Se dispara cuando toda la página ha sido cargada, incluyendo todos los recurosos, como hojas de estilo o imagen.
+
+Drawing 
+Es un objeto preconstruido que contiene todos los métodos y propiedades que nos permiten dibujar y animar colores, formas y otros gráficos dentro del Canvas HTML.para ello, tenemos que utilizar un método especial llamado getContext referenciado al elemento Canvas y pasarle como parámetro el tipo de contenido, por ejemplo "2d"
+
+POO en JS:
+Es un lenguaje de programacion orientado a objetos basado en prototipos, lo que significa que no utiliza clases. Podemos utilizar la sintaxis JS moderna donde utilizamos azúcar sintética, que el la fomra de utlizar sintaxis limpiaque imita la clsases usadas en otros legunajes de programacion, pero en el fondo, seguimos trabajando con prototipos.
+
+CONSTRUCTOR:
+Método especial en las clases de JS. Cuando llamamos una clase con la palabra new, el constructor crea un nuevo objeto y le asigna propiedades y valores basados en el prototipo.
+
+requestAnimationFrame()
+Le dice al navegador que deseamos llevar acabo una animación y solicita que el navegador mande a llamar una función específica para actualizar una animación antes del sig. rentrincado.
+
+indexOf()
+Este método regresa el primer índice donde se encuentre un elemento dado el en array, o regresa -1 en caso de no encontrarlo.
+
+splice()
+Este método cambia el contenido de un array, quitando o reemplazando elementos existentes.
+
+includes()
+Este método determina si un array contiene un cierto valor en alguno de sus elementos, regresando true en tal caso o false sin ningpun elemento es igual al enviarlo como parámetro.
